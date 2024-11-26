@@ -6,6 +6,8 @@ interface Album {
   userId: number;
   photoTitle: string;
   photoUrl: string;
+  id: number;
+  title: string;
 }
 
 @Component({
@@ -23,7 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   getAlbums() {
-    this.http.get<Album[]>('https://localhost:7184/api/Album?userId=1').subscribe(
+    this.http.get<Album[]>('https://jsonplaceholder.typicode.com/albums').subscribe(
       (result) => {
         this.albums = result;
       },
